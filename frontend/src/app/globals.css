@@ -1,0 +1,252 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1f2937;
+  
+  /* Axium Industries brand colors */
+  --axium-primary: #1e40af;
+  --axium-secondary: #3b82f6;
+  --axium-accent: #06b6d4;
+  --axium-success: #10b981;
+  --axium-warning: #f59e0b;
+  --axium-danger: #ef4444;
+  --axium-gray-50: #f9fafb;
+  --axium-gray-100: #f3f4f6;
+  --axium-gray-200: #e5e7eb;
+  --axium-gray-300: #d1d5db;
+  --axium-gray-400: #9ca3af;
+  --axium-gray-500: #6b7280;
+  --axium-gray-600: #4b5563;
+  --axium-gray-700: #374151;
+  --axium-gray-800: #1f2937;
+  --axium-gray-900: #111827;
+  
+  /* Detection colors */
+  --safety-equipment: #10b981;
+  --hazards: #ef4444;
+  --equipment: #3b82f6;
+  --personnel: #f59e0b;
+  --structures: #8b5cf6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+/* Axium Industries utility classes */
+.axium-gradient {
+  background: linear-gradient(135deg, var(--axium-primary) 0%, var(--axium-secondary) 100%);
+}
+
+.axium-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--axium-gray-200);
+}
+
+.axium-button-primary {
+  background: var(--axium-primary);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.axium-button-primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.axium-button-secondary {
+  background: white;
+  color: var(--axium-primary);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: 2px solid var(--axium-primary);
+  cursor: pointer;
+}
+
+.axium-button-secondary:hover {
+  background: var(--axium-gray-50);
+  transform: translateY(-1px);
+}
+
+/* Detection visualization */
+.detection-box {
+  position: absolute;
+  border: 3px solid;
+  border-radius: 6px;
+  pointer-events: none;
+  backdrop-filter: blur(1px);
+  transition: all 0.2s ease;
+}
+
+.detection-box.safety-equipment {
+  border-color: var(--safety-equipment);
+  background-color: rgba(16, 185, 129, 0.15);
+}
+
+.detection-box.hazards {
+  border-color: var(--hazards);
+  background-color: rgba(239, 68, 68, 0.15);
+}
+
+.detection-box.equipment {
+  border-color: var(--equipment);
+  background-color: rgba(59, 130, 246, 0.15);
+}
+
+.detection-box.personnel {
+  border-color: var(--personnel);
+  background-color: rgba(245, 158, 11, 0.15);
+}
+
+.detection-box.structures {
+  border-color: var(--structures);
+  background-color: rgba(139, 92, 246, 0.15);
+}
+
+/* Image viewer styles */
+.image-viewer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--axium-gray-50);
+}
+
+.image-viewer img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Upload zone styles */
+.upload-zone {
+  border: 2px dashed var(--axium-gray-300);
+  border-radius: 12px;
+  padding: 48px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  background: var(--axium-gray-50);
+}
+
+.upload-zone.dragover {
+  border-color: var(--axium-primary);
+  background: rgba(30, 64, 175, 0.05);
+}
+
+.upload-zone:hover {
+  border-color: var(--axium-secondary);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+/* Loading animations */
+@keyframes pulse-axium {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.pulse-axium {
+  animation: pulse-axium 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Navigation styles */
+.nav-link {
+  color: var(--axium-gray-600);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--axium-primary);
+  background: var(--axium-gray-100);
+}
+
+.nav-link.active {
+  color: var(--axium-primary);
+  background: rgba(30, 64, 175, 0.1);
+}
+
+/* Typography enhancements */
+.text-gradient {
+  background: linear-gradient(135deg, var(--axium-primary), var(--axium-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Status indicators */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status-indicator.success {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--axium-success);
+}
+
+.status-indicator.warning {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--axium-warning);
+}
+
+.status-indicator.danger {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--axium-danger);
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .axium-card {
+    margin: 16px;
+    border-radius: 8px;
+  }
+  
+  .upload-zone {
+    padding: 32px 16px;
+  }
+}
