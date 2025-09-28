@@ -1,0 +1,8 @@
+# YOLO Dataset Configuration
+train: ../data/images/train
+val: ../data/images/val
+
+nc: 1  # number of classes
+names:
+  0: distribution_board
+

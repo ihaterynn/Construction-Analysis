@@ -1,0 +1,7 @@
+# SAHI Sliced Dataset Configuration
+train: ../data/sliced_dataset/train/images
+val: ../data/sliced_dataset/val/images
+
+nc: 1  # number of classes
+names:
+  0: distribution_board
